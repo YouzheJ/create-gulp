@@ -1,0 +1,8 @@
+.counter {
+  background: #f2f2f2;
+  font-size: 14px;
+}
+.counter .header {
+  width: 900px;
+  margin: 0 auto;
+}

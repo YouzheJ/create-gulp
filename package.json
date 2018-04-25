@@ -1,0 +1,37 @@
+{
+  "name": "upload-mgjmls",
+  "version": "1.0.0",
+  "description": "一键上传蘑菇街、美丽说",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp start",
+    "less": "gulp less",
+    "start-less": "gulp start_less",
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://119.29.69.124:5288/huangjunjie/upload-mgjmls.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-minify-html-2": "^1.0.0",
+    "gulp-rev": "^8.1.1",
+    "gulp-rev-collector": "^1.2.4",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.5",
+    "http-proxy-middleware": "^0.18.0"
+  },
+  "devDependencies": {
+    "gulp-less": "^4.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-util": "^3.0.8"
+  }
+}
