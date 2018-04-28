@@ -8,6 +8,7 @@
     "less": "gulp less",
     "start-less": "gulp start_less",
     "build": "gulp build",
+    "build-jsp": "gulp build_jsp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,11 +20,16 @@
   "dependencies": {
     "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
+    "gulp-asset-rev": "^0.0.15",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.9.3",
+    "gulp-concat": "^2.6.1",
     "gulp-minify-html-2": "^1.0.0",
+    "gulp-rename": "^1.2.2",
     "gulp-rev": "^8.1.1",
+    "gulp-rev-all": "^0.9.7",
     "gulp-rev-collector": "^1.2.4",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
     "gulp-useref": "^3.1.5",
     "http-proxy-middleware": "^0.18.0"

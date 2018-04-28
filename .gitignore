@@ -2,5 +2,6 @@ node_modules/
 .vscode/
 rev/
 build/
+temp/
 yarn.lock
 package-lock.json
