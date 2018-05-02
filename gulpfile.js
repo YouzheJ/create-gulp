@@ -62,17 +62,6 @@ gulp.task('lessWatch', function () {
 var temp_path = './temp';
 var build_path = './build';
 
-gulp.task('build', ['less', 'minify_js', 'minify_css', 'images'], function () {
-  gulp.start('rev_html');
-  gulp.start('rev_all');
-});
-
-gulp.task('build_jsp', ['less', 'minify_js', 'minify_css', 'images'], function () {
-  gulp.start('rev_html');
-  gulp.start('rev_jsp');
-  gulp.start('rev_all');
-})
-
 gulp.task('minify_js', ['clean'], function () {
   /**
    * 压缩js
@@ -103,19 +92,11 @@ gulp.task('clean', function () {
   return gulp.src(['build', 'temp']).pipe(clean());
 });
 
-gulp.task('rev_all', ['rev_html'], function () {
-  return gulp.src(temp_path + '/**')
-    .pipe(RevAll.revision({
-      dontRenameFile: ['.html', '.jsp', 'min.js', 'min.css']
-    }))
-    .pipe(gulp.dest(build_path));
-});
-
 /**
- * 替换版本号，压缩html（script压缩暂时没有处理）
+ * 压缩html（script压缩暂时没有处理）
  */
 gulp.task('rev_html', function () {
-  return gulp.src(['./src/**/*.html'])
+  return gulp.src(['./src/**/*.html', './src/**/*.htm'])
     .pipe(minifyHtml({
       empty: true,  
       spare: true
@@ -124,7 +105,7 @@ gulp.task('rev_html', function () {
 });
 
 /**
- * 替换版本号，压缩html（script压缩暂时没有处理）jsp
+ * 压缩jsp（script压缩暂时没有处理）
  */
 gulp.task('rev_jsp', function () {
     return gulp.src(['./src/**/*.jsp'])
@@ -133,4 +114,32 @@ gulp.task('rev_jsp', function () {
       spare: true
     }))
     .pipe(gulp.dest(temp_path));
+});
+
+/**
+ * 替换版本号
+ */
+gulp.task('rev_all', ['rev_html'], function () {
+  return gulp.src(temp_path + '/**')
+    .pipe(RevAll.revision({
+      dontRenameFile: ['.html', '.htm', '.jsp', 'min.js', 'min.css'],
+      transformPath: function (rev, source, path) {
+        return rev;
+      },
+    }))
+    .pipe(gulp.dest(build_path));
+});
+
+/**
+ * 打包的主任务
+ */
+gulp.task('build', ['less', 'minify_js', 'minify_css', 'images'], function () {
+  gulp.start('rev_html');
+  gulp.start('rev_all');
+});
+
+gulp.task('build_jsp', ['less', 'minify_js', 'minify_css', 'images'], function () {
+  gulp.start('rev_html');
+  gulp.start('rev_jsp');
+  gulp.start('rev_all');
 });
