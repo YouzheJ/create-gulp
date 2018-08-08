@@ -1,7 +1,7 @@
 {
   "name": "upload-mgjmls",
   "version": "1.0.0",
-  "description": "一键上传蘑菇街、美丽说",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "gulp start",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://119.29.69.124:5288/huangjunjie/upload-mgjmls.git"
+    "url": ""
   },
   "author": "",
   "license": "ISC",
